@@ -8,8 +8,10 @@ import cracking_interview_question.ArraysAndStrings;
 
 public class ArraysAndStringsTest {
 
+	//1.1
 	@Test
-	public void testIsUniqueCharacters() {
+	public void testIsUniqueCharacters() 
+	{
 		assertEquals("Test case 1:", true, ArraysAndStrings.isUniqueCharacters("")); 
 		assertEquals("Test case 2:", true, ArraysAndStrings.isUniqueCharacters("h")); 
 		assertEquals("Test case 3:", false, ArraysAndStrings.isUniqueCharacters("hh")); 
@@ -18,10 +20,28 @@ public class ArraysAndStringsTest {
 		assertEquals("Test case 6:", false, ArraysAndStrings.isUniqueCharacters("00"));
 		assertEquals("Test case 7:", false, ArraysAndStrings.isUniqueCharacters("0 0"));
 		assertEquals("Test case 8:", true, ArraysAndStrings.isUniqueCharacters("0 "));
+		assertEquals("Test case 9:", true, ArraysAndStrings.isUniqueCharacters(" "));
 	}
 	
+	//1.1b
 	@Test
-	public void testIsPermutationOfOther() {
+	public void testIsUniqueCharactersB() 
+	{
+		assertEquals("Test case 1:", true, ArraysAndStrings.isUniqueCharactersB("")); 
+		assertEquals("Test case 2:", true, ArraysAndStrings.isUniqueCharactersB("h")); 
+		assertEquals("Test case 3:", false, ArraysAndStrings.isUniqueCharactersB("hh")); 
+		assertEquals("Test case 4:", true, ArraysAndStrings.isUniqueCharactersB("he")); 
+		assertEquals("Test case 5:", true, ArraysAndStrings.isUniqueCharactersB("0")); 
+		assertEquals("Test case 6:", false, ArraysAndStrings.isUniqueCharactersB("00"));
+		assertEquals("Test case 7:", false, ArraysAndStrings.isUniqueCharactersB("0 0"));
+		assertEquals("Test case 8:", true, ArraysAndStrings.isUniqueCharactersB("0 "));
+		assertEquals("Test case 9:", true, ArraysAndStrings.isUniqueCharactersB(" "));
+	}
+	
+	//1.3
+	@Test
+	public void testIsPermutationOfOther() 
+	{
 		assertEquals("Test case 1:", true, ArraysAndStrings.isPermutationOfOther("", "")); 
 		assertEquals("Test case 2:", true, ArraysAndStrings.isPermutationOfOther("1", "1")); 
 		assertEquals("Test case 3:", true, ArraysAndStrings.isPermutationOfOther("11", "11")); 
@@ -33,6 +53,97 @@ public class ArraysAndStringsTest {
 		assertEquals("Test case 9:", true, ArraysAndStrings.isPermutationOfOther("123", "123123"));
 		assertEquals("Test case 10:", false, ArraysAndStrings.isPermutationOfOther("123", "12312"));
 		assertEquals("Test case 11:", false, ArraysAndStrings.isPermutationOfOther("123", "1212313"));
+
+	}
+	
+	//1.4
+	@Test
+	public void testReplaceStringWith20() 
+	{
+		char[] text = {'M', 'r', ' ', 'J', 'o', 'h', 'n',' ', 'S', 'm', 'i', 't', 'h', ' ', ' ', ' ', ' ' };
+		char[] textResult = {'M', 'r', '%', '2', '0', 'J', 'o','h', 'n', '%', '2', '0', 'S', 'm', 'i', 't', 'h'};
+		assertEquals("Test case 1:", textResult, ArraysAndStrings.replaceStringWith20(text)); 
+		char[] text2 = {'M', 'r', ' ', 'J', 'o', 'h', 'n', ' ', ' ' };
+		char[] textResult2 = {'M', 'r', '%', '2', '0', 'J', 'o','h', 'n'};
+		assertEquals("Test case 2:", textResult2, ArraysAndStrings.replaceStringWith20(text2)); 
+	}
+	
+	//1.5
+	@Test
+	public void testBasicCompress() 
+	{
+		assertEquals("Test case 1:", "a2b1c5a3", ArraysAndStrings.basicCompress("aabccccaaa"));
+		assertEquals("Test case 2:", "a", ArraysAndStrings.basicCompress("a"));
+		assertEquals("Test case 3:", "a", ArraysAndStrings.basicCompress("aa"));
+		assertEquals("Test case 4:", "ab", ArraysAndStrings.basicCompress("ab"));
+		assertEquals("Test case 5:", "aabb", ArraysAndStrings.basicCompress("aabb"));
+
+	}
+	
+	private void printImage(int[][] matrix)
+	{
+		for(int i = 0; i < matrix.length; i++ )
+		{
+			for(int j = 0; j < matrix[i].length; j++ )
+			{
+				System.out.print(matrix[i][j]);
+			}
+			System.out.print("\n");
+		}
+		System.out.print("\n");
+	}
+	
+	//1.6
+	@Test
+	public void testRotataImage() 
+	{
+		int[][] image = {{1,2}, {3,4}};
+		printImage(image);
+		ArraysAndStrings.rotataImage(image);
+		printImage(image);
+		
+		int[][] image2 = {{1,2, 3}, {4,5, 6}, {7, 8, 9}};
+		printImage(image2);
+		ArraysAndStrings.rotataImage(image2);
+		printImage(image2);
+
+		int[][] image3 = {{1,2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}};
+		printImage(image3);
+		ArraysAndStrings.rotataImage(image3);
+		printImage(image3);
+
+	}
+	
+	//1.7
+	@Test
+	public void testSetRowColumnToZero() 
+	{
+		int[][] image = {{1,0}, {3,4}};
+		printImage(image);
+		ArraysAndStrings.setRowColumnToZero(image);
+		printImage(image);
+		
+		int[][] image2 = {{1,0, 3}, {4,5, 6}, {7, 8, 9}};
+		printImage(image2);
+		ArraysAndStrings.setRowColumnToZero(image2);
+		printImage(image2);
+
+		int[][] image3 = {{1,2, 3, 4}, {5, 6, 7, 0}, {9, 10, 11, 12}, {13, 14, 15, 16}};
+		printImage(image3);
+		ArraysAndStrings.setRowColumnToZero(image3);
+		printImage(image3);
+
+	}
+	
+	//1.8
+	@Test
+	public void testCheckStringRotation() 
+	{
+		assertEquals("Test case 1:", true, ArraysAndStrings.checkStringRotation("", "")); 
+		assertEquals("Test case 2:", true, ArraysAndStrings.checkStringRotation("waterbottle", "erbottlewat")); 
+		assertEquals("Test case 3:", true, ArraysAndStrings.checkStringRotation("11", "11"));
+		assertEquals("Test case 4:", true, ArraysAndStrings.checkStringRotation("waterbottle", "waterbottle"));
+		assertEquals("Test case 5:", false, ArraysAndStrings.checkStringRotation("waterbottle", "watersbottle"));
 
 	}
 
