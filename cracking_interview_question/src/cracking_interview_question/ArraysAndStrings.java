@@ -5,6 +5,23 @@ public class ArraysAndStrings {
 	//1.1
 	public static boolean isUniqueCharacters(String text)
 	{
+		if(text.length() < 128)
+		{
+			boolean[] ascii = new boolean[128];
+			
+			for(int i = 0; i < text.length(); i++)
+			{
+				char ascciOfCharacter = text.charAt(i);
+				System.out.println(ascciOfCharacter+0);
+				if(ascii[ascciOfCharacter])
+				{
+					return false;
+				}
+				ascii[ascciOfCharacter] = true;
+			}
+			return true;
+		}
+
 		return false;
 	}
 	
