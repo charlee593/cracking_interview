@@ -76,10 +76,10 @@ public class ArraysAndStringsTest {
 	public void testBasicCompress() 
 	{
 		System.out.println("Test 1.5 run in big O: ");
-		assertEquals("Test case 1:", "a2b1c5a3", ArraysAndStrings.basicCompress("aabccccaaa"));
+		assertEquals("Test case 1:", "a2b1c4a3", ArraysAndStrings.basicCompress("aabccccaaa"));
 		assertEquals("Test case 2:", "a", ArraysAndStrings.basicCompress("a"));
-		assertEquals("Test case 3:", "a", ArraysAndStrings.basicCompress("aa"));
-		assertEquals("Test case 4:", "ab", ArraysAndStrings.basicCompress("ab"));
+		assertEquals("Test case 3:", "aa", ArraysAndStrings.basicCompress("aa"));
+		assertEquals("Test case 4:", "abb", ArraysAndStrings.basicCompress("abb"));
 		assertEquals("Test case 5:", "aabb", ArraysAndStrings.basicCompress("aabb"));
 
 	}

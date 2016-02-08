@@ -89,6 +89,39 @@ public class ArraysAndStrings {
 	//1.5
 	public static String basicCompress(String text)
 	{
+
+		if(text.length() > 2)
+		{
+			String result = "";
+			int uniqueCharPointer = 0;
+			int currentCharPointer = 1;
+			int counter = 1;
+			while(currentCharPointer < text.length())
+			{
+				if(text.charAt(currentCharPointer) == text.charAt(uniqueCharPointer))
+				{
+					counter++;
+				}
+				else
+				{
+					result += text.charAt(uniqueCharPointer);
+					result += counter;
+					counter =1;
+				}
+				uniqueCharPointer = currentCharPointer;
+				currentCharPointer++;
+
+			}
+			result += text.charAt(uniqueCharPointer);
+			result += counter;
+
+			if(result.length() < text.length())
+			{
+				return result;
+			}
+			return text;
+			
+		}
 		return text;
 	}
 	
