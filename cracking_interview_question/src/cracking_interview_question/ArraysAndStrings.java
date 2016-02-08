@@ -12,7 +12,6 @@ public class ArraysAndStrings {
 			for(int i = 0; i < text.length(); i++)
 			{
 				char ascciOfCharacter = text.charAt(i);
-				System.out.println(ascciOfCharacter+0);
 				if(ascii[ascciOfCharacter])
 				{
 					return false;
@@ -28,6 +27,19 @@ public class ArraysAndStrings {
 	//1.1b
 	public static boolean isUniqueCharactersB(String text)
 	{
+		if(text.length() < 24)
+		{
+			int hash = 0;
+			for(int i=0; text.length() > i ; i++)
+			{
+				if((hash & (1 << 'z' -text.charAt(i))) > 0)
+				{
+					return false;
+				}
+				hash = hash | (1 << 'z'-text.charAt(i)); 
+			}
+			return true;
+		}
 		return false;
 	}
 	
