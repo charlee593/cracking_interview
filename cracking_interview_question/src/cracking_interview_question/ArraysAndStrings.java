@@ -63,7 +63,27 @@ public class ArraysAndStrings {
 	//1.4
 	public static char[] replaceStringWith20(char[] text)
 	{
-		return text;
+		int currentTextPointer = 0;
+		int currentResultArrayPointer = 0;
+		char[] resultArray = new char[text.length];
+		while(currentResultArrayPointer < resultArray.length)
+		{
+			if(text[currentTextPointer] == ' ')
+			{
+				resultArray[currentResultArrayPointer] = '%';
+				resultArray[++currentResultArrayPointer] = '2';
+				resultArray[++currentResultArrayPointer] = '0';
+				currentResultArrayPointer++;
+				currentTextPointer++;
+			}
+			else
+			{
+				resultArray[currentResultArrayPointer] = text[currentTextPointer];
+				currentTextPointer++;
+				currentResultArrayPointer++;
+			}
+		}
+		return resultArray;
 	}
 	
 	//1.5

@@ -2,6 +2,7 @@ package cracking_interview_question_testcase;
 
 import static org.junit.Assert.*;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import cracking_interview_question.ArraysAndStrings;
@@ -64,10 +65,10 @@ public class ArraysAndStringsTest {
 		System.out.println("Test 1.4 run in big O: ");
 		char[] text = {'M', 'r', ' ', 'J', 'o', 'h', 'n',' ', 'S', 'm', 'i', 't', 'h', ' ', ' ', ' ', ' ' };
 		char[] textResult = {'M', 'r', '%', '2', '0', 'J', 'o','h', 'n', '%', '2', '0', 'S', 'm', 'i', 't', 'h'};
-		assertEquals("Test case 1:", textResult, ArraysAndStrings.replaceStringWith20(text)); 
+		Assert.assertArrayEquals(textResult, ArraysAndStrings.replaceStringWith20(text));
 		char[] text2 = {'M', 'r', ' ', 'J', 'o', 'h', 'n', ' ', ' ' };
 		char[] textResult2 = {'M', 'r', '%', '2', '0', 'J', 'o','h', 'n'};
-		assertEquals("Test case 2:", textResult2, ArraysAndStrings.replaceStringWith20(text2)); 
+		Assert.assertArrayEquals(textResult2, ArraysAndStrings.replaceStringWith20(text2));	
 	}
 	
 	//1.5
