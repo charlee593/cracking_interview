@@ -1,5 +1,7 @@
 package cracking_interview_question;
 
+import java.util.Arrays;
+
 public class ArraysAndStrings { 
 	
 	//1.1
@@ -46,6 +48,15 @@ public class ArraysAndStrings {
 	//1.3
 	public static boolean isPermutationOfOther(String text, String text2)
 	{
+		if(text.length() == text2.length())
+		{
+			char[] textSortedArray = text.toCharArray();
+			Arrays.sort(textSortedArray);
+			char[] text2SortedArray = text2.toCharArray();
+			Arrays.sort(text2SortedArray);
+			
+			return Arrays.equals(textSortedArray, text2SortedArray);
+		}
 		return false;
 	}
 	
