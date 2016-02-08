@@ -101,7 +101,7 @@ public class ArraysAndStringsTest {
 	@Test
 	public void testRotataImage() 
 	{
-		fail();
+//		fail();
 		System.out.println("Test 1.6 run in big O: ");
 		System.out.println("Test 1.6a");
 		int[][] image = {{1,2}, {3,4}};
