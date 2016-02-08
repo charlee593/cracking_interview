@@ -145,6 +145,31 @@ public class ArraysAndStrings {
 	//1.7
 	public static void setRowColumnToZero(int[][] matrix)
 	{
+		boolean[] column = new boolean[matrix.length];
+		boolean[] row = new boolean[matrix.length];
+		for(int i = 0; i <  matrix.length; i++)
+		{
+			for(int j = 0; j < matrix.length; j++)
+			{
+				if(matrix[i][j] == 0)
+				{
+					column[j] = true;
+					row[i] = true;
+				}
+			}
+		}
+		for(int i = 0; i <  matrix.length; i++)
+		{
+			for(int j = 0; j < matrix.length; j++)
+			{
+				if(column[j] || row[i])
+				{
+					matrix[i][j] = 0;
+				}
+			}
+		}
+		
+		
 	}
 	
 	//1.8

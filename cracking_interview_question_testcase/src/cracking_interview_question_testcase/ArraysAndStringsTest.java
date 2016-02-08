@@ -101,7 +101,7 @@ public class ArraysAndStringsTest {
 	@Test
 	public void testRotataImage() 
 	{
-//		fail();
+		Assert.assertTrue(true);
 		System.out.println("Test 1.6 run in big O: ");
 		System.out.println("Test 1.6a");
 		int[][] image = {{1,2}, {3,4}};
@@ -127,7 +127,7 @@ public class ArraysAndStringsTest {
 	@Test
 	public void testSetRowColumnToZero() 
 	{
-		fail();
+//		fail();
 		System.out.println("Test 1.7 run in big O: ");
 		System.out.println("Test 1.7a");
 		int[][] image = {{1,0}, {3,4}};
@@ -146,6 +146,18 @@ public class ArraysAndStringsTest {
 		printImage(image3);
 		ArraysAndStrings.setRowColumnToZero(image3);
 		printImage(image3);
+		
+		System.out.println("Test 1.7d");
+		int[][] image4 = {};
+		printImage(image4);
+		ArraysAndStrings.setRowColumnToZero(image4);
+		printImage(image4);
+		
+		System.out.println("Test 1.7e");
+		int[][] image5 = {{1,2, 3, 4}, {5, 6, 7, 0}, {9, 10, 11, 12}, {0, 0, 0, 0}};
+		printImage(image5);
+		ArraysAndStrings.setRowColumnToZero(image5);
+		printImage(image5);
 
 	}
 	
