@@ -175,6 +175,7 @@ public class ArraysAndStrings {
 	//1.8
 	public static boolean checkStringRotation(String text, String text2)
 	{
-		return false;
+		String doubleText2 =text2+text2;
+		return doubleText2.contains(text);
 	}
 }
