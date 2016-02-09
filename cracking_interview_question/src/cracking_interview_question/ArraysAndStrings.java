@@ -1,22 +1,62 @@
 package cracking_interview_question;
 
+import java.util.Arrays;
+
 public class ArraysAndStrings { 
 	
 	//1.1
 	public static boolean isUniqueCharacters(String text)
 	{
+		if(text.length() < 128)
+		{
+			boolean[] ascii = new boolean[128];
+			
+			for(int i = 0; i < text.length(); i++)
+			{
+				char ascciOfCharacter = text.charAt(i);
+				if(ascii[ascciOfCharacter])
+				{
+					return false;
+				}
+				ascii[ascciOfCharacter] = true;
+			}
+			return true;
+		}
+
 		return false;
 	}
 	
 	//1.1b
 	public static boolean isUniqueCharactersB(String text)
 	{
+		if(text.length() < 24)
+		{
+			int hash = 0;
+			for(int i=0; text.length() > i ; i++)
+			{
+				if((hash & (1 << 'z' -text.charAt(i))) > 0)
+				{
+					return false;
+				}
+				hash = hash | (1 << 'z'-text.charAt(i)); 
+			}
+			return true;
+		}
 		return false;
 	}
 	
 	//1.3
 	public static boolean isPermutationOfOther(String text, String text2)
 	{
+		if(text.length() == text2.length())
+		{
+			char[] textSortedArray = text.toCharArray();
+			Arrays.sort(textSortedArray);
+			char[] text2SortedArray = text2.toCharArray();
+			Arrays.sort(text2SortedArray);
+			
+			return Arrays.equals(textSortedArray, text2SortedArray);
+		}
 		return false;
 	}
 	

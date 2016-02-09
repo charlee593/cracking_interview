@@ -12,6 +12,7 @@ public class ArraysAndStringsTest {
 	@Test
 	public void testIsUniqueCharacters() 
 	{
+		System.out.println("Test 1.1a run in big O: O(n)");
 		assertEquals("Test case 1:", true, ArraysAndStrings.isUniqueCharacters("")); 
 		assertEquals("Test case 2:", true, ArraysAndStrings.isUniqueCharacters("h")); 
 		assertEquals("Test case 3:", false, ArraysAndStrings.isUniqueCharacters("hh")); 
@@ -27,21 +28,21 @@ public class ArraysAndStringsTest {
 	@Test
 	public void testIsUniqueCharactersB() 
 	{
+		System.out.println("Test 1.1b run in big O: ");
 		assertEquals("Test case 1:", true, ArraysAndStrings.isUniqueCharactersB("")); 
 		assertEquals("Test case 2:", true, ArraysAndStrings.isUniqueCharactersB("h")); 
 		assertEquals("Test case 3:", false, ArraysAndStrings.isUniqueCharactersB("hh")); 
 		assertEquals("Test case 4:", true, ArraysAndStrings.isUniqueCharactersB("he")); 
-		assertEquals("Test case 5:", true, ArraysAndStrings.isUniqueCharactersB("0")); 
-		assertEquals("Test case 6:", false, ArraysAndStrings.isUniqueCharactersB("00"));
-		assertEquals("Test case 7:", false, ArraysAndStrings.isUniqueCharactersB("0 0"));
-		assertEquals("Test case 8:", true, ArraysAndStrings.isUniqueCharactersB("0 "));
-		assertEquals("Test case 9:", true, ArraysAndStrings.isUniqueCharactersB(" "));
+		assertEquals("Test case 5:", true, ArraysAndStrings.isUniqueCharactersB("h e")); 
+		assertEquals("Test case 6:", false, ArraysAndStrings.isUniqueCharactersB("h ee h")); 
+
 	}
 	
 	//1.3
 	@Test
 	public void testIsPermutationOfOther() 
 	{
+		System.out.println("Test 1.3 run in big O: ");
 		assertEquals("Test case 1:", true, ArraysAndStrings.isPermutationOfOther("", "")); 
 		assertEquals("Test case 2:", true, ArraysAndStrings.isPermutationOfOther("1", "1")); 
 		assertEquals("Test case 3:", true, ArraysAndStrings.isPermutationOfOther("11", "11")); 
@@ -60,6 +61,7 @@ public class ArraysAndStringsTest {
 	@Test
 	public void testReplaceStringWith20() 
 	{
+		System.out.println("Test 1.4 run in big O: ");
 		char[] text = {'M', 'r', ' ', 'J', 'o', 'h', 'n',' ', 'S', 'm', 'i', 't', 'h', ' ', ' ', ' ', ' ' };
 		char[] textResult = {'M', 'r', '%', '2', '0', 'J', 'o','h', 'n', '%', '2', '0', 'S', 'm', 'i', 't', 'h'};
 		assertEquals("Test case 1:", textResult, ArraysAndStrings.replaceStringWith20(text)); 
@@ -72,6 +74,7 @@ public class ArraysAndStringsTest {
 	@Test
 	public void testBasicCompress() 
 	{
+		System.out.println("Test 1.5 run in big O: ");
 		assertEquals("Test case 1:", "a2b1c5a3", ArraysAndStrings.basicCompress("aabccccaaa"));
 		assertEquals("Test case 2:", "a", ArraysAndStrings.basicCompress("a"));
 		assertEquals("Test case 3:", "a", ArraysAndStrings.basicCompress("aa"));
@@ -86,7 +89,7 @@ public class ArraysAndStringsTest {
 		{
 			for(int j = 0; j < matrix[i].length; j++ )
 			{
-				System.out.print(matrix[i][j]);
+				System.out.print(matrix[i][j] + "   ");
 			}
 			System.out.print("\n");
 		}
@@ -97,16 +100,21 @@ public class ArraysAndStringsTest {
 	@Test
 	public void testRotataImage() 
 	{
+		fail();
+		System.out.println("Test 1.6 run in big O: ");
+		System.out.println("Test 1.6a");
 		int[][] image = {{1,2}, {3,4}};
 		printImage(image);
 		ArraysAndStrings.rotataImage(image);
 		printImage(image);
 		
+		System.out.println("Test 1.6b");
 		int[][] image2 = {{1,2, 3}, {4,5, 6}, {7, 8, 9}};
 		printImage(image2);
 		ArraysAndStrings.rotataImage(image2);
 		printImage(image2);
 
+		System.out.println("Test 1.6c");
 		int[][] image3 = {{1,2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}};
 		printImage(image3);
 		ArraysAndStrings.rotataImage(image3);
@@ -118,16 +126,21 @@ public class ArraysAndStringsTest {
 	@Test
 	public void testSetRowColumnToZero() 
 	{
+		fail();
+		System.out.println("Test 1.7 run in big O: ");
+		System.out.println("Test 1.7a");
 		int[][] image = {{1,0}, {3,4}};
 		printImage(image);
 		ArraysAndStrings.setRowColumnToZero(image);
 		printImage(image);
 		
+		System.out.println("Test 1.7b");
 		int[][] image2 = {{1,0, 3}, {4,5, 6}, {7, 8, 9}};
 		printImage(image2);
 		ArraysAndStrings.setRowColumnToZero(image2);
 		printImage(image2);
 
+		System.out.println("Test 1.7c");
 		int[][] image3 = {{1,2, 3, 4}, {5, 6, 7, 0}, {9, 10, 11, 12}, {13, 14, 15, 16}};
 		printImage(image3);
 		ArraysAndStrings.setRowColumnToZero(image3);
@@ -139,6 +152,7 @@ public class ArraysAndStringsTest {
 	@Test
 	public void testCheckStringRotation() 
 	{
+		System.out.println("Test 1.8 run in big O: ");
 		assertEquals("Test case 1:", true, ArraysAndStrings.checkStringRotation("", "")); 
 		assertEquals("Test case 2:", true, ArraysAndStrings.checkStringRotation("waterbottle", "erbottlewat")); 
 		assertEquals("Test case 3:", true, ArraysAndStrings.checkStringRotation("11", "11"));
