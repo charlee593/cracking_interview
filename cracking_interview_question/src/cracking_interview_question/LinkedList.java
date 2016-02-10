@@ -61,8 +61,29 @@ public class LinkedList {
 	}
 	
 	//2.2
-	public static void findKthLastElement(Node node)
+	public static int findKthLastElement(Node node, int k)
 	{
+		if(k > 0)
+		{
+			Node current = node;
+			Node runner = node;
+			int gap = 0;
+			while(runner != null)
+			{
+				if(gap < k)
+				{
+					gap++;
+				}
+				else
+				{
+					current = current.next;
+				}
+				runner = runner.next;
+			}
+			return current.data;
+		}
+		return node.data;
+
 	}
 	
 	//2.3
