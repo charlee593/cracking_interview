@@ -89,6 +89,8 @@ public class LinkedList {
 	//2.3
 	public static void deleteNodeMiddleLinkedList(Node node)
 	{
+		node.data = node.next.data;
+		node.next = node.next.next;
 	}
 	
 	//2.4
