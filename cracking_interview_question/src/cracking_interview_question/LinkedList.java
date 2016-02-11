@@ -94,8 +94,54 @@ public class LinkedList {
 	}
 	
 	//2.4
-	public static void partitionLinkList(Node node, int x)
+	public static Node partitionLinkList(Node node, int x)
 	{
+		Node lessThanXHead = null;
+		Node lessThanXTail = null;
+		Node head = node;
+		Node current = node;
+		Node previous = current;
+		
+		while(current != null)
+		{
+			if(current.data < x)
+			{
+				previous.next = current.next;
+				if(lessThanXHead == null)
+				{
+					lessThanXHead = current;
+					lessThanXTail= current;
+				}
+				else
+				{
+					lessThanXTail.next = current;
+					lessThanXTail = current;
+				}
+				current = previous.next;
+			}
+			else if(current.data == x)
+			{
+				previous.next = current.next;
+				current.next = head;
+				head= current;
+				current = previous.next;
+			}
+			else
+			{
+				previous = current;
+				current = current.next;
+			}
+		}
+		if(lessThanXTail != null)
+		{
+			lessThanXTail.next = head;
+			return lessThanXHead;
+		}
+		else
+		{
+			return head;
+		}
+		
 	}
 	
 	//2.5

@@ -202,11 +202,66 @@ public class LinkedListTest {
 		printNode(node);	
 	}
 
-//	@Test
-//	public void testPartitionLinkList() {
-//		fail("Not yet implemented");
-//	}
-//
+	@Test
+	public void testPartitionLinkList() {
+		Node node = new Node(9);
+		Node node2 = new Node(8);
+		Node node3 = new Node(7);
+		Node node4 = new Node(6);
+		Node node5 = new Node(5);
+		Node node6 = new Node(4);
+		Node node7 = new Node(7);
+		Node node8 = new Node(8);
+		Node node9 = new Node(1);
+		Node node10 = new Node(10);
+		
+		node.next = node2;
+		node2.next = node3;
+		node3.next = node4;
+		node4.next = node5;
+		node5.next = node6;
+		node6.next = node7;
+		node7.next = node8;
+		node8.next = node9;
+		node9.next = node10;
+		
+		Node pointer = node;
+		System.out.println("Test Case 2.4a:");
+		printNode(pointer);
+		printNode(LinkedList.partitionLinkList(pointer, 5));
+		
+		Node nodeB = new Node(9);
+		Node nodeB2 = new Node(8);
+		Node nodeB3 = new Node(7);
+		Node nodeB4 = new Node(6);
+		Node nodeB5 = new Node(5);
+		Node nodeB6 = new Node(4);
+		Node nodeB7 = new Node(5);
+		Node nodeB8 = new Node(5);
+		Node nodeB9 = new Node(5);
+		Node nodeB10 = new Node(5);
+		
+		nodeB.next = nodeB2;
+		nodeB2.next = nodeB3;
+		nodeB3.next = nodeB4;
+		nodeB4.next = nodeB5;
+		nodeB5.next = nodeB6;
+		nodeB6.next = nodeB7;
+		nodeB7.next = nodeB8;
+		nodeB8.next = nodeB9;
+		nodeB9.next = nodeB10;
+		
+		System.out.println("Test Case 2.4b:");
+		printNode(nodeB);
+		printNode(LinkedList.partitionLinkList(nodeB, 5));
+		
+		Node nodeC = new Node(9);
+		
+		System.out.println("Test Case 2.4c:");
+		printNode(nodeC);
+		printNode(LinkedList.partitionLinkList(nodeC, 5));
+	}
+
 //	@Test
 //	public void testSumLinkList() {
 //		fail("Not yet implemented");
