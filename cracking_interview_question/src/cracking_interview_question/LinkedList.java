@@ -145,9 +145,49 @@ public class LinkedList {
 	}
 	
 	//2.5
-	public static int sumLinkList(Node node, Node node2)
-	{
-		return 0;
+	public static Node sumLinkList(Node number1, Node number2) {
+		Node pointer1 = number1;
+		Node pointer2 = number2;
+		Node result = null;
+		Node current = null;
+		int carry = 0;
+		
+		while(pointer1 != null || pointer2 != null)
+		{
+			int numPointer1 = (pointer1 == null) ?0 : pointer1.data;
+			int numPointer2 = (pointer2 == null) ?0 : pointer2.data;
+			int sum = numPointer1 + numPointer2 + (carry/10);
+			if(sum>9)
+			{
+				carry = 10;
+				sum = sum - carry;
+				
+			}
+			else
+			{
+				carry = 0;
+			}
+			Node resultNode = new Node(sum);
+			if(result == null)
+			{
+				result = resultNode;
+				current = resultNode;
+			}
+			else
+			{
+				current.next = resultNode;
+				current = resultNode;
+			}
+			if (pointer1 != null)  pointer1 = pointer1.next;
+			if (pointer2 != null)  pointer2 = pointer2.next;
+		}
+		if(carry != 0)
+		{
+			Node resultNode = new Node(1);
+			current.next = resultNode;
+			current = resultNode;
+		}
+		return result;
 	}
 	
 	//2.5b
