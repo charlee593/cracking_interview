@@ -303,11 +303,54 @@ public class LinkedListTest {
 		printNode(LinkedList.sumLinkList(nodeB, nodeB4));
 	}
 	
-//	@Test
-//	public void testSumLinkListB() {
-//		fail("Not yet implemented");
-//	}
-//
+	@Test
+	public void testSumLinkListB() {
+		Node node = new Node(6);
+		Node node2 = new Node(1);
+		Node node3 = new Node(7);
+		
+		Node node4 = new Node(2);
+		Node node5 = new Node(9);
+		Node node6 = new Node(5);
+
+		node.next = node2;
+		node2.next = node3;
+		
+		node4.next = node5;
+		node5.next = node6;
+
+		System.out.println("Test Case 2.5Ba:");
+		printNode(node);
+		printNode(node4);
+		printNode(LinkedList.sumLinkListB(node, node4));
+		
+		Node nodeB = new Node(9);
+		
+		Node nodeB2 = new Node(9);
+		Node nodeB3 = new Node(9);
+
+		nodeB2.next = nodeB3;
+
+		System.out.println("Test Case 2.5Bb:");
+		printNode(nodeB);
+		printNode(nodeB2);
+		printNode(LinkedList.sumLinkListB(nodeB, nodeB2));
+		
+		Node nodeC = new Node(9);
+		Node nodeC2 = new Node(9);
+		
+		Node nodeC3 = new Node(9);
+		Node nodeC4 = new Node(9);
+
+		nodeC.next = nodeC2;	
+		nodeC3.next = nodeC4;
+
+		System.out.println("Test Case 2.5Bc:");
+		printNode(nodeC);
+		printNode(nodeC3);
+		printNode(LinkedList.sumLinkListB(nodeC, nodeC3));
+	}
+
 //	@Test
 //	public void testGetHeadOfLoop() {
 //		fail("Not yet implemented");

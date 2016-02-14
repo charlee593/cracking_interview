@@ -190,10 +190,72 @@ public class LinkedList {
 		return result;
 	}
 	
-	//2.5b
-	public static int sumLinkListB(Node node, Node node2)
+	static class SumWithNodeAndCarry
 	{
-		return 0;
+		public int carry = 0;
+		public Node result = null;
+		
+	}
+	
+	public static SumWithNodeAndCarry sumRecursion(Node node, Node node2)
+	{
+		if(node == null && node2 == null)
+		{
+			SumWithNodeAndCarry result = new SumWithNodeAndCarry();
+			result.result = null;
+			return result;
+		}
+		
+		SumWithNodeAndCarry previousSum = sumRecursion(node.next, node2.next);
+		int resultSum = (node == null) ? 0 : node.data + 
+				((node2 == null) ? 0 : node2.data) + previousSum.carry;
+		int carry = 0;
+		if(resultSum > 9){
+			resultSum = resultSum % 10;
+			carry = 1;
+		}
+		Node resultNode = new Node(resultSum);
+		resultNode.next = previousSum.result;
+
+		SumWithNodeAndCarry result = new SumWithNodeAndCarry();
+		result.carry = carry;
+		result.result = resultNode;
+		return result;
+	}
+	
+	//2.5b
+	public static Node sumLinkListB(Node node, Node node2)
+	{
+		Node pointer1 = node;
+		Node head = node;
+		Node pointer2 = node2;
+		Node head2 = node2;
+		while(pointer1 != null || pointer2 != null)
+		{
+			if(pointer1 == null && pointer2 != null)
+			{
+				Node zeroNode = new Node(0);
+				zeroNode.next = head;
+				head = zeroNode;
+			}
+			if(pointer2 == null && pointer1 != null)
+			{
+				Node zeroNode = new Node(0);
+				zeroNode.next = head2;
+				head2 = zeroNode;
+			} 
+			pointer1 = (pointer1 != null) ? pointer1.next : null;
+			pointer2 = (pointer2 != null) ? pointer2.next : null;
+		}
+		SumWithNodeAndCarry result = sumRecursion(head, head2);
+		if(result.carry != 0)
+		{
+			Node resultNode = new Node(result.carry);
+			resultNode.next = result.result;
+			return resultNode;
+		}
+		
+		return result.result;
 	}
 	
 	//2.6
