@@ -261,7 +261,22 @@ public class LinkedList {
 	//2.6
 	public static Node getHeadOfLoop(Node node)
 	{
-		return null;
+		Node slowRunner = node.next;
+		Node fastRunner = node.next.next;
+		
+		while(slowRunner != fastRunner)
+		{
+			slowRunner = slowRunner.next;
+			fastRunner = fastRunner.next.next;
+		}
+		slowRunner = node;
+		while(slowRunner != fastRunner)
+		{
+			slowRunner = slowRunner.next;
+			fastRunner = fastRunner.next;
+		}
+		
+		return slowRunner;
 	}
 	
 	//2.7

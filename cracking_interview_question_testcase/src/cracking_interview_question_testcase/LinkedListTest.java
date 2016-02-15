@@ -351,11 +351,24 @@ public class LinkedListTest {
 		printNode(LinkedList.sumLinkListB(nodeC, nodeC3));
 	}
 
-//	@Test
-//	public void testGetHeadOfLoop() {
-//		fail("Not yet implemented");
-//	}
-//
+	@Test
+	public void testGetHeadOfLoop() {
+		Node node = new Node(1);
+		Node node2 = new Node(2);
+		Node node3 = new Node(3);
+		Node node4 = new Node(4);
+		Node node5 = new Node(5);
+
+		node.next = node2;
+		node2.next = node3;
+		node3.next = node4;
+		node4.next = node5;
+		node5.next = node3;
+
+		System.out.println("Test Case 2.6a:");
+		System.out.println(LinkedList.getHeadOfLoop(node).data);
+	}
+
 //	@Test
 //	public void testIsPalindrome() {
 //		fail("Not yet implemented");
