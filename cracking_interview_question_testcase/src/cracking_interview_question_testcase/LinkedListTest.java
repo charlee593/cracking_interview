@@ -369,9 +369,63 @@ public class LinkedListTest {
 		System.out.println(LinkedList.getHeadOfLoop(node).data);
 	}
 
-//	@Test
-//	public void testIsPalindrome() {
-//		fail("Not yet implemented");
-//	}
+	@Test
+	public void testIsPalindrome() {
+		Node node = new Node(1);
+		Node node2 = new Node(2);
+		Node node3 = new Node(3);
+		Node node4 = new Node(4);
+
+		node.next = node2;
+		node2.next = node3;
+		node3.next = node4;
+
+		System.out.println("Test Case 2.7a:");
+		printNode(node);
+		System.out.println(LinkedList.isPalindrome(node));
+		
+		Node nodeB = new Node(1);
+		Node nodeB2 = new Node(2);
+		Node nodeB3 = new Node(2);
+		Node nodeB4 = new Node(1);
+
+		nodeB.next = nodeB2;
+		nodeB2.next = nodeB3;
+		nodeB3.next = nodeB4;
+
+		System.out.println("Test Case 2.7b:");
+		printNode(nodeB);
+		System.out.println(LinkedList.isPalindrome(nodeB));
+		
+		Node nodeC = new Node(1);
+		Node nodeC2 = new Node(2);
+		Node nodeC3 = new Node(2);
+		Node nodeC4 = new Node(2);
+		Node nodeC5 = new Node(1);
+
+		nodeC.next = nodeC2;
+		nodeC2.next = nodeC3;
+		nodeC3.next = nodeC4;
+		nodeC4.next = nodeC5;
+
+		System.out.println("Test Case 2.7c:");
+		printNode(nodeC);
+		System.out.println(LinkedList.isPalindrome(nodeC));
+		
+		Node nodeD = new Node(1);
+		Node nodeD2 = new Node(2);
+		Node nodeD3 = new Node(2);
+		Node nodeD4 = new Node(2);
+		Node nodeD5 = new Node(2);
+		
+		nodeD.next = nodeD2;
+		nodeD2.next = nodeD3;
+		nodeD3.next = nodeD4;
+		nodeD4.next = nodeD5;
+
+		System.out.println("Test Case 2.7d:");
+		printNode(nodeD);
+		System.out.println(LinkedList.isPalindrome(nodeD));
+	}
 
 }

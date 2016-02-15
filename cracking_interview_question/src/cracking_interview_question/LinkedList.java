@@ -1,6 +1,7 @@
 package cracking_interview_question;
 
 import java.util.HashMap;
+import java.util.Stack;
 
 public class LinkedList {
 	
@@ -282,7 +283,33 @@ public class LinkedList {
 	//2.7
 	public static boolean isPalindrome(Node node)
 	{
-		return false;
+		Stack<Integer> firstHalfStack = new Stack<Integer>();
+		
+		Node slowRunner = node;
+		Node fastRunner = node;
+		
+		while(fastRunner != null && fastRunner.next != null)
+		{
+			firstHalfStack.push(slowRunner.data);
+			slowRunner = slowRunner.next;
+			fastRunner = fastRunner.next.next;
+		}
+		if(fastRunner != null)
+		{
+			slowRunner = slowRunner.next;
+		}
+		while(slowRunner != null)
+		{
+			int popInt = firstHalfStack.pop();
+			if(slowRunner.data != popInt)
+			{
+				return false;
+			}
+			slowRunner = slowRunner.next;
+		}
+
+		return true;
+
 	}
 
 }
