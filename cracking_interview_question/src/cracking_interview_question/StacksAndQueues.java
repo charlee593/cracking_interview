@@ -16,7 +16,7 @@ public class StacksAndQueues {
 		}
 	}
 	
-	class SingleArrayStackData
+	public class SingleArrayStackData
 	{
 		public int stackSize = 0;
 		public int numberOfStack = 0;
@@ -126,32 +126,6 @@ public class StacksAndQueues {
 
 		}
 		
-	}
-
-	public static void main(String[] args)
-	{
-		System.out.println("running");
-		StacksAndQueues temps = new StacksAndQueues();
-		StacksAndQueues.SingleArrayStackData tes = temps.new SingleArrayStackData(3, 3);
-		tes.push(0, 1);
-		tes.push(0, 2);
-		tes.push(0, 3);
-		tes.push(1, 11);
-		tes.push(1, 12);
-		tes.push(0, 4);
-		tes.push(0, 5);
-		tes.push(0, 6);
-		tes.push(0, 7);
-		System.out.println(tes.pop(0));
-		System.out.println(tes.pop(0));
-		System.out.println(tes.pop(0));
-		System.out.println(tes.pop(0));
-		System.out.println(tes.pop(0));
-		System.out.println(tes.pop(0));
-		System.out.println(tes.pop(0));
-		System.out.println(tes.pop(1));
-		System.out.println(tes.pop(1));
-
 	}
 		
 }
