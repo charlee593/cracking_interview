@@ -1,5 +1,6 @@
 package cracking_interview_question;
 
+import java.util.ArrayList;
 import java.util.Stack;
 
 public class StacksAndQueues {
@@ -173,5 +174,49 @@ public class StacksAndQueues {
 			}
 			return 0;
 		}
+	}
+	
+	//3.3
+	public class SetOfStacks<T>
+	{
+		ArrayList<Stack<T>> stacks = new ArrayList<Stack<T>>();
+		public int sizeOfStack = 0;
+		
+		public SetOfStacks(int sizeOfStack)
+		{
+			this.sizeOfStack = sizeOfStack;
+			stacks.add(new Stack<T>());
+		}
+		
+		public T peek()
+		{
+			return stacks.get(stacks.size()-1).peek();
+		}
+		
+		public void push(T item)
+		{
+			if(stacks.get(stacks.size()-1).size() >= sizeOfStack)
+			{
+				Stack<T> newStack = new Stack<T>();
+				stacks.add(newStack);
+			}
+			stacks.get(stacks.size()-1).push(item);
+		}
+		
+		public T pop()
+		{
+			T result = stacks.get(stacks.size()-1).pop();
+			if(stacks.get(stacks.size()-1).isEmpty())
+			{
+				stacks.remove(stacks.size()-1);
+			}
+			return result;
+		}
+		
+		public T popAt(int index)
+		{
+			return null;
+		}
+		
 	}
 }

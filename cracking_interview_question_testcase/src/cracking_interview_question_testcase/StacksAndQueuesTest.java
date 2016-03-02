@@ -60,26 +60,40 @@ public class StacksAndQueuesTest {
 		temps.push(1);
 		temps.push(2);
 		temps.push(1);
-		assertEquals("Question 1a 1 min", 1, temps.min());
-		assertEquals("Question 1a 2 pop", 1, temps.pop());
-		assertEquals("Question 1a 3 min", 1, temps.min());
-		assertEquals("Question 1a 4 pop", 2, temps.pop());
-		assertEquals("Question 1a 5 min", 1, temps.min());
-		assertEquals("Question 1a 6 pop", 1, temps.pop());
-		assertEquals("Question 1a 7 min", 0, temps.min());
+		assertEquals("Question 2a 1 min", 1, temps.min());
+		assertEquals("Question 2a 2 pop", 1, temps.pop());
+		assertEquals("Question 2a 3 min", 1, temps.min());
+		assertEquals("Question 2a 4 pop", 2, temps.pop());
+		assertEquals("Question 2a 5 min", 1, temps.min());
+		assertEquals("Question 2a 6 pop", 1, temps.pop());
+		assertEquals("Question 2a 7 min", 0, temps.min());
 		
 		temps.push(5);
 		temps.push(3);
 		temps.push(1);
-		assertEquals("Question 1b 1 min", 1, temps.min());
-		assertEquals("Question 1b 2 pop", 1, temps.pop());
-		assertEquals("Question 1b 3 min", 3, temps.min());
-		assertEquals("Question 1b 4 pop", 3, temps.pop());
-		assertEquals("Question 1b 5 min", 5, temps.min());
-		assertEquals("Question 1b 6 pop", 5, temps.pop());
-		assertEquals("Question 1b 7 min", 0, temps.min());
-
+		assertEquals("Question 2b 1 min", 1, temps.min());
+		assertEquals("Question 2b 2 pop", 1, temps.pop());
+		assertEquals("Question 2b 3 min", 3, temps.min());
+		assertEquals("Question 2b 4 pop", 3, temps.pop());
+		assertEquals("Question 2b 5 min", 5, temps.min());
+		assertEquals("Question 2b 6 pop", 5, temps.pop());
+		assertEquals("Question 2b 7 min", 0, temps.min());
+	}
 	
+	@Test
+	public void question3() {
+		StacksAndQueues stackAndQueues = new StacksAndQueues();
+		StacksAndQueues.SetOfStacks<Integer> temps = stackAndQueues.new SetOfStacks<Integer>(3);
+		temps.push(1);
+		temps.push(5);
+		temps.push(6);
+		temps.push(2);
+		
+		System.out.println(temps.pop());
+		System.out.println(temps.pop());
+		System.out.println(temps.pop());
+		System.out.println(temps.pop());
+
 	}
 
 
