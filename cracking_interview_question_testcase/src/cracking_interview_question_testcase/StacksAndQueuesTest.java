@@ -89,10 +89,7 @@ public class StacksAndQueuesTest {
 		temps.push(6);
 		temps.push(2);
 		
-		System.out.println(temps.pop());
-		System.out.println(temps.pop());
-		System.out.println(temps.pop());
-		System.out.println(temps.pop());
+		assertEquals("Question 3a 1 pop", 2, (int)temps.pop());
 
 	}
 
