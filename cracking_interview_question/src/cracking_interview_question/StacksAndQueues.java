@@ -1,5 +1,7 @@
 package cracking_interview_question;
 
+import java.util.Stack;
+
 public class StacksAndQueues {
 	
 	//3.1
@@ -127,5 +129,49 @@ public class StacksAndQueues {
 		}
 		
 	}
+	
+	//3.2
+	public class StackWithMin
+	{
+		Stack<Integer> stack = null;
+		Stack<Integer> minStack = null;
+		public StackWithMin()
+		{
+			stack = new Stack<Integer>();
+			minStack = new Stack<Integer>();
+		}
 		
+		public void peek()
+		{
+			stack.peek();
+		}
+		
+		public int pop()
+		{
+			int result = stack.pop();
+			if(result == minStack.peek())
+			{
+				minStack.pop();
+			}
+			return result;
+		}
+		
+		public void push(int item)
+		{
+			if(minStack.isEmpty() || item <= minStack.peek())
+			{
+				minStack.push(item);
+			}
+			stack.push(item);
+		}
+		
+		public int min()
+		{
+			if(!minStack.isEmpty())
+			{
+				return minStack.peek();
+			}
+			return 0;
+		}
+	}
 }
