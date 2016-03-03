@@ -90,6 +90,19 @@ public class StacksAndQueuesTest {
 		temps.push(2);
 		
 		assertEquals("Question 3a 1 pop", 2, (int)temps.pop());
+		assertEquals("Question 3a 2 pop", 6, (int)temps.pop());
+		assertEquals("Question 3a 3 pop", 5, (int)temps.pop());
+		assertEquals("Question 3a 4 pop", 1, (int)temps.pop());
+		
+		temps.push(1);
+		temps.push(5);
+		temps.push(6);
+		temps.push(2);
+		temps.push(8);
+		assertEquals("Question 3b 1 popAt", 8, (int)temps.popAt(1));
+		assertEquals("Question 3b 1 popAt", 6, (int)temps.popAt(0));
+		assertEquals("Question 3b 1 popAt", 2, (int)temps.popAt(0));
+
 
 	}
 

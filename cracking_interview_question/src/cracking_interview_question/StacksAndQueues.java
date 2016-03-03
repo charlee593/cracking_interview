@@ -206,7 +206,7 @@ public class StacksAndQueues {
 		public T pop()
 		{
 			T result = stacks.get(stacks.size()-1).pop();
-			if(stacks.get(stacks.size()-1).isEmpty())
+			if(stacks.get(stacks.size()-1).isEmpty() && stacks.size() != 1)
 			{
 				stacks.remove(stacks.size()-1);
 			}
@@ -215,7 +215,27 @@ public class StacksAndQueues {
 		
 		public T popAt(int index)
 		{
-			return null;
+			T result = stacks.get(index).pop();
+			slideOver(index);
+			return result;
+		}
+		
+		public void slideOver(int index)
+		{
+			if(index != stacks.size()-1 && stacks.get(index).size() != sizeOfStack)
+			{
+				T itemNextStack = stacks.get(index+1).remove(0);
+				stacks.get(index).push(itemNextStack);
+				if(stacks.get(index +1).isEmpty())
+				{
+					stacks.remove(index +1);
+				}
+				else
+				{
+					slideOver(index +1);
+				}
+
+			}
 		}
 		
 	}
