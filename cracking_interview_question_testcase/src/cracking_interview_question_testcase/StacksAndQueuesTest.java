@@ -1,6 +1,9 @@
 package cracking_interview_question_testcase;
 
 import static org.junit.Assert.*;
+
+import java.util.Stack;
+
 import junit.framework.Assert;
 
 import org.junit.Test;
@@ -102,6 +105,39 @@ public class StacksAndQueuesTest {
 		assertEquals("Question 3b 1 popAt", 8, (int)temps.popAt(1));
 		assertEquals("Question 3b 1 popAt", 6, (int)temps.popAt(0));
 		assertEquals("Question 3b 1 popAt", 2, (int)temps.popAt(0));
+
+
+	}
+	
+	@Test
+	public void question4() {
+		Stack stackFrom = new Stack();
+		Stack stackMiddle = new Stack();
+		Stack stackDest = new Stack();
+		
+		stackFrom.push(3);
+		stackFrom.push(2);
+		stackFrom.push(1);
+		
+		StacksAndQueues stackAndQueues = new StacksAndQueues();
+		stackAndQueues.towerOfHanoi(stackFrom, stackMiddle, stackDest);
+		
+		System.out.println("From: ");
+		System.out.println(stackFrom.pop());
+		System.out.println(stackFrom.pop());
+		System.out.println(stackFrom.pop());
+		
+		System.out.println("Middle: ");
+		System.out.println(stackMiddle.pop());
+		System.out.println(stackMiddle.pop());
+		System.out.println(stackMiddle.pop());
+		
+		System.out.println("Dest: ");
+		System.out.println(stackDest.pop());
+		System.out.println(stackDest.pop());
+		System.out.println(stackDest.pop());
+		
+		
 
 
 	}

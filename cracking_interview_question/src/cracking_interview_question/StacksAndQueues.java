@@ -237,6 +237,30 @@ public class StacksAndQueues {
 
 			}
 		}
+	}
+	
+	//3.4
+	public void towerOfHanoi(Stack from, Stack middle, Stack dest)
+	{
+		boolean isEven = from.size() % 2 == 0;
 		
+		if(!from.isEmpty())
+		{
+			if(!isEven)
+			{
+				dest.push(from.pop());
+				towerOfHanoi(from, middle, dest);
+			}
+			else
+			{
+				middle.push(from.pop());
+				towerOfHanoi(dest, from, middle);
+			}
+		}
+		else
+		{
+			towerOfHanoi(middle, from, dest);
+		}
+
 	}
 }
