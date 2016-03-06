@@ -185,6 +185,35 @@ public class StacksAndQueuesTest {
 
 		
 	}
+	
+	@Test
+	public void question7() {
+		StacksAndQueues stackAndQueues = new StacksAndQueues();
+		StacksAndQueues.AnimalShelter temps = stackAndQueues.new AnimalShelter();
+		
+		StacksAndQueues.Dog dog1 = stackAndQueues.new Dog("dog1");
+		StacksAndQueues.Dog dog2 = stackAndQueues.new Dog("dog2");
+		
+		StacksAndQueues.Cat cat1 = stackAndQueues.new Cat("cat1");
+		StacksAndQueues.Cat cat2 = stackAndQueues.new Cat("cat2");
+		
+		temps.enqueue(dog1);
+		temps.enqueue(cat1);
+		
+		assertEquals("Question 3g 1 dequeueAny", dog1, temps.dequeueAny());
+		assertEquals("Question 3g 2 dequeueAny", cat1, temps.dequeueAny());
+		
+		temps.enqueue(dog1);
+		temps.enqueue(cat1);
+		temps.enqueue(dog2);
+		temps.enqueue(cat2);
+		
+		assertEquals("Question 3g 3 dequeueDog", dog1, temps.dequeueDog());
+		assertEquals("Question 3g 4 dequeueCat", cat1, temps.dequeueCat());
+		assertEquals("Question 3g 5 dequeueAny", dog2, temps.dequeueAny());
+
+		
+	}
 
 
 }

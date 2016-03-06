@@ -1,7 +1,10 @@
 package cracking_interview_question;
 
 import java.util.ArrayList;
+import java.util.PriorityQueue;
+import java.util.Queue;
 import java.util.Stack;
+import java.util.LinkedList;;
 
 public class StacksAndQueues {
 	
@@ -331,6 +334,108 @@ public class StacksAndQueues {
 			{
 				stack.push(stackBuffer.pop());
 			}
+		}
+	}
+	
+	//3.7
+	public class AnimalShelter
+	{
+		Queue<Animal> dog = null;
+		Queue<Animal> cat = null;
+		int order = 0;
+		
+		public AnimalShelter()
+		{
+			dog = new LinkedList<Animal>();
+			cat = new LinkedList<Animal>();
+			
+		}
+		
+		public Animal dequeueAny()
+		{
+			if(dog.isEmpty() && !cat.isEmpty())
+			{
+				order--;
+				return cat.remove();
+			}
+			
+			if(cat.isEmpty() && !dog.isEmpty())
+			{
+				order--;
+				return dog.remove();
+			}
+			
+			if(cat.peek().order < dog.peek().order)
+			{
+				order--;
+				return cat.remove();
+			}
+				
+			order--;
+			return dog.remove();
+		}
+		
+		public Animal dequeueDog()
+		{
+			if(dog.isEmpty())
+			{
+				return null;
+			}
+			order--;
+			return dog.remove();
+		}
+		
+		public Animal dequeueCat()
+		{
+			if(cat.isEmpty())
+			{
+				return null;
+			}
+			order--;
+			return cat.remove();
+		}
+		
+		public void enqueue(Animal animal)
+		{
+			if(animal instanceof Dog)
+			{
+				animal.order = ++order;
+				dog.add(animal);
+			}
+			
+			if(animal instanceof Cat)
+			{
+				animal.order = ++order;
+				cat.add(animal);
+			}
+		}
+		
+		
+	}
+	
+	public class Animal
+	{
+		public int order = 0;
+		public String name = "";
+		public Animal(String name)
+		{
+			this.name = name;
+		}
+	}
+	
+	public class Dog extends Animal
+	{
+		public Dog(String name)
+		{
+			super(name);
+		}
+	}
+	
+	public class Cat extends Animal
+	{
+		public Cat(String name)
+		{
+			super(name);
 		}
 	}
 }
