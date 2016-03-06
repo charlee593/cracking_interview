@@ -115,24 +115,21 @@ public class StacksAndQueuesTest {
 		Stack stackMiddle = new Stack();
 		Stack stackDest = new Stack();
 		
+		stackFrom.push(6);
+		stackFrom.push(5);
+		stackFrom.push(4);
 		stackFrom.push(3);
 		stackFrom.push(2);
 		stackFrom.push(1);
 		
 		StacksAndQueues stackAndQueues = new StacksAndQueues();
-		stackAndQueues.towerOfHanoi(stackFrom, stackMiddle, stackDest);
-		
-		System.out.println("From: ");
-		System.out.println(stackFrom.pop());
-		System.out.println(stackFrom.pop());
-		System.out.println(stackFrom.pop());
-		
-		System.out.println("Middle: ");
-		System.out.println(stackMiddle.pop());
-		System.out.println(stackMiddle.pop());
-		System.out.println(stackMiddle.pop());
+		stackAndQueues.towerOfHanoi(6, stackFrom, stackMiddle, stackDest);
+
 		
 		System.out.println("Dest: ");
+		System.out.println(stackDest.pop());
+		System.out.println(stackDest.pop());
+		System.out.println(stackDest.pop());
 		System.out.println(stackDest.pop());
 		System.out.println(stackDest.pop());
 		System.out.println(stackDest.pop());

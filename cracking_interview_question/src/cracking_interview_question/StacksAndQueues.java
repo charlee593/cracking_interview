@@ -240,26 +240,14 @@ public class StacksAndQueues {
 	}
 	
 	//3.4
-	public void towerOfHanoi(Stack from, Stack middle, Stack dest)
+	public void towerOfHanoi(int numBlock, Stack from, Stack middle, Stack dest)
 	{
-		boolean isEven = from.size() % 2 == 0;
-		
-		if(!from.isEmpty())
+		if(!from.isEmpty() && numBlock> 0)
 		{
-			if(!isEven)
-			{
-				dest.push(from.pop());
-				towerOfHanoi(from, middle, dest);
-			}
-			else
-			{
-				middle.push(from.pop());
-				towerOfHanoi(dest, from, middle);
-			}
-		}
-		else
-		{
-			towerOfHanoi(middle, from, dest);
+			towerOfHanoi(numBlock -1, from, dest, middle);
+			dest.push(from.pop());
+			towerOfHanoi(numBlock -1, middle, from, dest);
+			
 		}
 
 	}
