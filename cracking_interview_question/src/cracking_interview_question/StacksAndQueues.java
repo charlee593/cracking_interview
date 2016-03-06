@@ -293,4 +293,44 @@ public class StacksAndQueues {
 		
 		
 	}
+	
+	//3.6
+	public class OrderedStack
+	{
+		Stack<Integer> stack = null;
+		Stack<Integer> stackBuffer = null;
+		public OrderedStack()
+		{
+			stack = new Stack<Integer>();
+			stackBuffer = new Stack<Integer>();
+		}
+		
+		public int peek()
+		{
+			return stack.peek();
+		}
+		
+		public boolean isEmpty()
+		{
+			return stack.isEmpty();
+		}
+		
+		public int pop()
+		{
+			return stack.pop();
+		}
+		
+		public void push(int item)
+		{
+			while(!stack.isEmpty() && stack.peek() > item)
+			{
+				stackBuffer.push(stack.pop());
+			}
+			stack.push(item);
+			while(!stackBuffer.isEmpty())
+			{
+				stack.push(stackBuffer.pop());
+			}
+		}
+	}
 }

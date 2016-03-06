@@ -159,6 +159,32 @@ public class StacksAndQueuesTest {
 		assertEquals("Question 3e 8 pop", 6, (int)temps.dequeue());
 		
 	}
+	
+	@Test
+	public void question6() {
+		StacksAndQueues stackAndQueues = new StacksAndQueues();
+		StacksAndQueues.OrderedStack temps = stackAndQueues.new OrderedStack();
+		
+		temps.push(1);
+		temps.push(2);
+		temps.push(3);
+
+		assertEquals("Question 3f 1 pop", 3, (int)temps.pop());
+		assertEquals("Question 3f 2 pop", 2, (int)temps.pop());
+		assertEquals("Question 3f 3 pop", 1, (int)temps.pop());
+
+		temps.push(3);
+		temps.push(2);
+		
+		assertEquals("Question 3f 4 pop", 3, (int)temps.pop());
+		
+		temps.push(1);
+		
+		assertEquals("Question 3f 5 pop", 2, (int)temps.pop());
+		assertEquals("Question 3f 6 pop", 1, (int)temps.pop());
+
+		
+	}
 
 
 }
