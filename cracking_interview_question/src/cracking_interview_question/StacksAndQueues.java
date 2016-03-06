@@ -251,4 +251,46 @@ public class StacksAndQueues {
 		}
 
 	}
+	
+	//3.5
+	public class MyQueue
+	{
+		Stack<Integer> stack = null;
+		Stack<Integer> stackBuffer = null;
+		public MyQueue()
+		{
+			stack = new Stack<Integer>();
+			stackBuffer = new Stack<Integer>();
+		}
+		
+		public int dequeue()
+		{
+			while(!stack.isEmpty())
+			{
+				stackBuffer.push(stack.pop());
+			}
+			return stackBuffer.pop();
+		}
+		
+		public void enqueue(int item)
+		{
+			while(!stackBuffer.isEmpty())
+			{
+				stack.push(stackBuffer.pop());
+			}
+			
+			stack.push(item);
+		}
+		
+		public int peek()
+		{
+			while(!stack.isEmpty())
+			{
+				stackBuffer.push(stack.pop());
+			}
+			return stackBuffer.peek();
+		}
+		
+		
+	}
 }

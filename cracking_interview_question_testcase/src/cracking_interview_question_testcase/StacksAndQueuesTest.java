@@ -125,18 +125,39 @@ public class StacksAndQueuesTest {
 		StacksAndQueues stackAndQueues = new StacksAndQueues();
 		stackAndQueues.towerOfHanoi(6, stackFrom, stackMiddle, stackDest);
 
+		assertEquals("Question 3d 1 pop", 1, (int)stackDest.pop());
+		assertEquals("Question 3d 2 pop", 2, (int)stackDest.pop());
+		assertEquals("Question 3d 3 pop", 3, (int)stackDest.pop());
+		assertEquals("Question 3d 4 pop", 4, (int)stackDest.pop());
+		assertEquals("Question 3d 5 pop", 5, (int)stackDest.pop());
+		assertEquals("Question 3d 6 pop", 6, (int)stackDest.pop());
 		
-		System.out.println("Dest: ");
-		System.out.println(stackDest.pop());
-		System.out.println(stackDest.pop());
-		System.out.println(stackDest.pop());
-		System.out.println(stackDest.pop());
-		System.out.println(stackDest.pop());
-		System.out.println(stackDest.pop());
+	}
+	
+	@Test
+	public void question5() {
+		StacksAndQueues stackAndQueues = new StacksAndQueues();
+		StacksAndQueues.MyQueue temps = stackAndQueues.new MyQueue();
 		
 		
-
-
+		temps.enqueue(1);
+		temps.enqueue(2);
+		temps.enqueue(3);
+		temps.enqueue(4);
+		
+		assertEquals("Question 3e 1 peek", 1, (int)temps.peek());
+		assertEquals("Question 3e 2 pop", 1, (int)temps.dequeue());
+		assertEquals("Question 3e 3 peek", 2, (int)temps.peek());
+		assertEquals("Question 3e 4 pop", 2, (int)temps.dequeue());
+		assertEquals("Question 3e 5 pop", 3, (int)temps.dequeue());
+		assertEquals("Question 3e 6 pop", 4, (int)temps.dequeue());
+		
+		temps.enqueue(5);
+		temps.enqueue(6);
+		
+		assertEquals("Question 3e 7 pop", 5, (int)temps.dequeue());
+		assertEquals("Question 3e 8 pop", 6, (int)temps.dequeue());
+		
 	}
 
 
