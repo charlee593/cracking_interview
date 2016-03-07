@@ -2,7 +2,7 @@ package cracking_interview_question;
 
 public class BST<K extends Comparable<K>> {
     // *** fields ***
-    private BSTnode<K> root; // ptr to the root of the BST
+    public BSTnode<K> root; // ptr to the root of the BST
  
     // *** constructor ***
     public BST() { root = null; } 
