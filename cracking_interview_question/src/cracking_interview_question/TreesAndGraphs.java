@@ -46,5 +46,11 @@ public class TreesAndGraphs {
 		System.out.println(isBinaryTreeBalance(node1));
 
 	}
+	
+	//4.2
+	public static boolean isConnected()
+	{
+		
+	}
 
 }
