@@ -48,9 +48,11 @@ public class TreesAndGraphs {
 	}
 	
 	//4.2
-	public static boolean isConnected()
+	
+	
+	public static boolean isConnected(GraphNode)
 	{
-		
+		return false;
 	}
 
 }

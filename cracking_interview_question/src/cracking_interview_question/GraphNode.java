@@ -1,6 +1,6 @@
 package cracking_interview_question;
 
-public class GraphNode<K> {
+public class GraphNode<K>{
 	public GraphNode[] connectedNode = null;
 	public K key;
 	
