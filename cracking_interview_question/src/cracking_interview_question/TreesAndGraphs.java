@@ -1,6 +1,9 @@
 package cracking_interview_question;
 
+import java.util.Hashtable;
+import java.util.LinkedList;
 import java.util.List;
+
 import org.jgrapht.alg.*;
 import org.jgrapht.*;
 import org.jgrapht.graph.*;
@@ -55,15 +58,40 @@ public class TreesAndGraphs {
         g.addEdge(vertex4, vertex5);
         g.addEdge(vertex1, vertex5);
                 
-        System.out.println(g.toString());
-
+//        System.out.println(g.toString());
 	}
 	
 	//4.2
-	
-	
-	public static boolean isConnected(DirectedGraph g, String vertex1, String vertex2 )
+	public static boolean isConnected(DirectedGraph<String, DefaultEdge> g, String vertex1, String vertex2 )
 	{
+		LinkedList<String> queue = new LinkedList<String>();
+		Hashtable<String, Boolean> visitTable = new Hashtable<String, Boolean>();
+		
+		for(String e : g.vertexSet())
+		{
+			visitTable.put(e, false);
+		}
+		
+		visitTable.replace(vertex1, true);
+		queue.add(vertex1);
+		
+		while(!queue.isEmpty())
+		{
+			String currentVertex = queue.removeFirst();
+			for(DefaultEdge child: g.edgesOf(currentVertex))
+			{
+				if(!visitTable.get(g.getEdgeTarget(child)))
+				{
+					if(g.getEdgeTarget(child) == vertex2)
+					{
+						return true;
+					}
+					queue.add(g.getEdgeTarget(child));
+				}
+			}
+			visitTable.replace(currentVertex, true);
+		}
+		
 		return false;
 	}
 
