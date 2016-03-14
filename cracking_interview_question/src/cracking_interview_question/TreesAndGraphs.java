@@ -56,9 +56,9 @@ public class TreesAndGraphs {
         g.addEdge(vertex2, vertex4);
         g.addEdge(vertex3, vertex5);
         g.addEdge(vertex4, vertex5);
-        g.addEdge(vertex1, vertex5);
+//        g.addEdge(vertex1, vertex5);
                 
-//        System.out.println(g.toString());
+        System.out.println(isConnected(g, "4", "1"));
 	}
 	
 	//4.2
