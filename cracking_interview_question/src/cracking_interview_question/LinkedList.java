@@ -1,5 +1,7 @@
 package cracking_interview_question;
 
+import javax.xml.soap.Node;
+
 public class LinkedList {
 	
 	//2.1
