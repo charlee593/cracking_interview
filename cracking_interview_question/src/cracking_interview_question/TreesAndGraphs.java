@@ -94,5 +94,11 @@ public class TreesAndGraphs {
 		
 		return false;
 	}
+	
+	//4.3
+	public static BSTnode createBalanceBST(int[] array )
+	{
+		return null;
+	}
 
 }
