@@ -35,30 +35,35 @@ public class TreesAndGraphs {
 
 	public static void main(String[] args) 
 	{
-        DirectedGraph<String, DefaultEdge> g = new DefaultDirectedGraph<String, DefaultEdge>(DefaultEdge.class);
-
-        String vertex1 = "1";
-        String vertex2 = "2";
-        String vertex3 = "3";
-        String vertex4 = "4";
-        String vertex5 = "5";
-
-        // add the vertices
-        g.addVertex(vertex1);
-        g.addVertex(vertex2);
-        g.addVertex(vertex3);
-        g.addVertex(vertex4);
-        g.addVertex(vertex5);
-
-        // add edges to create linking structure
-        g.addEdge(vertex1, vertex2);
-        g.addEdge(vertex2, vertex3);
-        g.addEdge(vertex2, vertex4);
-        g.addEdge(vertex3, vertex5);
-        g.addEdge(vertex4, vertex5);
-//        g.addEdge(vertex1, vertex5);
-                
-        System.out.println(isConnected(g, "4", "1"));
+//        DirectedGraph<String, DefaultEdge> g = new DefaultDirectedGraph<String, DefaultEdge>(DefaultEdge.class);
+//
+//        String vertex1 = "1";
+//        String vertex2 = "2";
+//        String vertex3 = "3";
+//        String vertex4 = "4";
+//        String vertex5 = "5";
+//
+//        // add the vertices
+//        g.addVertex(vertex1);
+//        g.addVertex(vertex2);
+//        g.addVertex(vertex3);
+//        g.addVertex(vertex4);
+//        g.addVertex(vertex5);
+//
+//        // add edges to create linking structure
+//        g.addEdge(vertex1, vertex2);
+//        g.addEdge(vertex2, vertex3);
+//        g.addEdge(vertex2, vertex4);
+//        g.addEdge(vertex3, vertex5);
+//        g.addEdge(vertex4, vertex5);
+////        g.addEdge(vertex1, vertex5);
+//                
+//        System.out.println(isConnected(g, "4", "1"));
+		
+		
+		
+		
+		
 	}
 	
 	//4.2
@@ -96,9 +101,22 @@ public class TreesAndGraphs {
 	}
 	
 	//4.3
-	public static BSTnode createBalanceBST(int[] array )
+	public static BST createBalanceBST(int[] array )
 	{
-		return null;
+		BST<Integer> result = new BST<Integer>();
+		
+		int middle = array.length /2;
+		
+		result.insert(array[middle]);
+		
+		for(int i = 0; i < array.length; i++)
+		{
+			if(i != middle)
+			{
+				result.insert(array[i]);
+			}
+		}
+		return result;
 	}
 
 }
