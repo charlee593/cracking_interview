@@ -125,11 +125,11 @@ public class TreesAndGraphs {
 	public static Hashtable<Integer, LinkedList<BSTnode<Integer>>> createLinkedListFromDepth(BSTnode<Integer> tree)
 	{
 		Hashtable<Integer, LinkedList<BSTnode<Integer>>> hash = new Hashtable<Integer, LinkedList<BSTnode<Integer>>>();
-		getDepth(hash, tree, 0);
+		traverseDepth(hash, tree, 0);
 		return hash;
 	}
 	
-	private static void getDepth(Hashtable<Integer, LinkedList<BSTnode<Integer>>> hash, BSTnode<Integer> treeNode, int depth)
+	private static void traverseDepth(Hashtable<Integer, LinkedList<BSTnode<Integer>>> hash, BSTnode<Integer> treeNode, int depth)
 	{
 		if(treeNode != null)
 		{
@@ -143,8 +143,8 @@ public class TreesAndGraphs {
 				list.add(treeNode);
 				hash.put(depth, list );
 			}
-			getDepth(hash, treeNode.getLeft(), depth+1);
-			getDepth(hash, treeNode.getRight(), depth+1);
+			traverseDepth(hash, treeNode.getLeft(), depth+1);
+			traverseDepth(hash, treeNode.getRight(), depth+1);
 		}
 
 	}
