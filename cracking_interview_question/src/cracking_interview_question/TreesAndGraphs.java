@@ -61,7 +61,8 @@ public class TreesAndGraphs {
 //        System.out.println(isConnected(g, "4", "1"));
 		
 		
-		
+		int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+		System.out.println(isBinaryTreeBalance(createBalanceBST(array).root));
 		
 		
 	}
