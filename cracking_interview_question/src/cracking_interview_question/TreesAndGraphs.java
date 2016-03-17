@@ -62,8 +62,9 @@ public class TreesAndGraphs {
 //        System.out.println(isConnected(g, "4", "1"));
 		
 		
-		int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-		System.out.println(isBinaryTreeBalance(createBalanceBST(array).root));
+//		int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+//		System.out.println(isBinaryTreeBalance(createBalanceBST(array).root));
+		
 		
 		
 	}
@@ -148,5 +149,26 @@ public class TreesAndGraphs {
 		}
 
 	}
+	
+	//4.5
+	public static boolean isBST(BSTnode<Integer> treeNode)
+	{
+		return isBST(treeNode, Integer.MIN_VALUE, Integer.MAX_VALUE);
+	}
+	
+	private static boolean isBST(BSTnode<Integer> treeNode, int min, int max)
+	{
+		if(treeNode == null)
+			return true;
+		
+		if(treeNode.getKey() <= min && treeNode.getKey() >= max)
+		{
+			return false;
+		}
+		
+		return isBST(treeNode.getLeft(), min, treeNode.getKey()) && isBST(treeNode.getRight(), treeNode.getKey(), max);
+	}
+	
+	
 
 }
