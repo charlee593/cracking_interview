@@ -191,6 +191,28 @@ public class TreesAndGraphs {
 	         return smallest(n.getLeft());
 	     }
 	 }
+    
+    //4.7
+    public static BSTnode<Integer> commonNode(BSTnode<Integer> root, BSTnode<Integer> node, BSTnode<Integer> node2)
+    {
+    	if(root == null)
+    		return null;
+
+    	if(root.getKey() == node.getKey() || root.getKey() == node2.getKey() )
+    		return root;
+
+    	BSTnode<Integer> commonLeft = commonNode(root.getLeft(), node, node2);
+    	BSTnode<Integer> commonRight = commonNode(root.getRight(), node, node2);
+    	
+    	if(commonLeft == null && commonRight == null)
+    		return null;
+    		
+    	if(commonLeft != null && commonRight != null)
+    		return root;
+    	
+    	return commonLeft != null ?  commonLeft :  commonRight;
+
+    }
 	
 
 }
