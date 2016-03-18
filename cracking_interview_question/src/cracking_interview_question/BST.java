@@ -19,13 +19,17 @@ public class BST<K extends Comparable<K>> {
         
         if (key.compareTo(n.getKey()) < 0) {
             // add key to the left subtree
-            n.setLeft( insert(n.getLeft(), key) );
+        	BSTnode<K> newNode =  insert(n.getLeft(), key);
+        	newNode.setParent(n);
+            n.setLeft(newNode);
             return n;
         }
         
         else {
             // add key to the right subtree
-            n.setRight( insert(n.getRight(), key) );
+        	BSTnode<K> newNode =insert(n.getRight(), key);  
+        	newNode.setParent(n);
+            n.setRight(newNode );
             return n;
         }
     }

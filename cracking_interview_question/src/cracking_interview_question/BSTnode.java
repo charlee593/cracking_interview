@@ -3,7 +3,7 @@ package cracking_interview_question;
 class BSTnode<K> {
     // *** fields ***
     private K key;
-    private BSTnode<K> left, right;
+    private BSTnode<K> left, right, parent;
  
     // *** constructor ***
     public BSTnode(K key, BSTnode<K> left, BSTnode<K> right) {
@@ -18,10 +18,12 @@ class BSTnode<K> {
     public K getKey() { return key; }
     public BSTnode<K> getLeft() { return left; }
     public BSTnode<K> getRight() { return right; }
+    public BSTnode<K> getParent() { return parent; }
  
 
     // mutators (change fields)
     public void setKey(K newK) { key = newK; }
     public void setLeft(BSTnode<K> newL) { left = newL; }
     public void setRight(BSTnode<K> newR) { right = newR; }
+    public void setParent(BSTnode<K> newR) { parent = newR; }
 }

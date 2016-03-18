@@ -169,6 +169,28 @@ public class TreesAndGraphs {
 		return isBST(treeNode.getLeft(), min, treeNode.getKey()) && isBST(treeNode.getRight(), treeNode.getKey(), max);
 	}
 	
+	//4.6
+	public static BSTnode<Integer> nextNode(BSTnode<Integer> treeNode)
+	{
+		if(treeNode.getRight() != null)
+		{
+			return smallest(treeNode.getRight());
+		}
+		if(treeNode.getParent() != null)
+		{
+			return nextNode(treeNode.getParent());
+		}
+		return null;
+	}
+	
+    private static BSTnode<Integer> smallest(BSTnode<Integer> n)
+	 {
+	     if (n.getLeft() == null) {
+	         return n;
+	     } else {
+	         return smallest(n.getLeft());
+	     }
+	 }
 	
 
 }
