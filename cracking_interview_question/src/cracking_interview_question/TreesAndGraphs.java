@@ -213,6 +213,25 @@ public class TreesAndGraphs {
     	return commonLeft != null ?  commonLeft :  commonRight;
 
     }
+    
+    //4.8
+    public static boolean isSubtree(BSTnode<Integer> tree, BSTnode<Integer> tree2)
+    {
+    	if(tree == null)
+    		return false;
+    	
+    	return (tree.getKey() == tree2.getKey()) ? sameTree(tree, tree2): (isSubtree(tree.getLeft(), tree2) || isSubtree(tree.getRight(), tree2));
+    }
+    
+    
+    
+    private static boolean sameTree(BSTnode<Integer> tree, BSTnode<Integer> tree2)
+    {
+    	if(tree == null)
+    		return tree == tree2;
+    	
+    	return tree.getKey() == tree2.getKey() && sameTree( tree.getLeft(),  tree2.getLeft()) && sameTree( tree.getRight(),  tree2.getRight());
+    }
 	
 
 }
