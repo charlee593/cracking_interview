@@ -80,7 +80,7 @@ public class TreesAndGraphs {
 			visitTable.put(e, false);
 		}
 		
-		visitTable.replace(vertex1, true);
+		visitTable.put(vertex1, true);
 		queue.add(vertex1);
 		
 		while(!queue.isEmpty())
@@ -97,7 +97,7 @@ public class TreesAndGraphs {
 					queue.add(g.getEdgeTarget(child));
 				}
 			}
-			visitTable.replace(currentVertex, true);
+			visitTable.put(currentVertex, true);
 		}
 		
 		return false;
@@ -232,6 +232,39 @@ public class TreesAndGraphs {
     	
     	return tree.getKey() == tree2.getKey() && sameTree( tree.getLeft(),  tree2.getLeft()) && sameTree( tree.getRight(),  tree2.getRight());
     }
+    
+    //4.9
+    public static void printPath(BSTnode<Integer> node, int sum)
+    {
+    	int depth = BTHeight(node)-1;
+    	int[] path = new int[1];
+    	printPath(node, path, sum, depth);
+    }
 	
+    public static void printPath(BSTnode<Integer> node, int[] path, int sum, int level)
+    {
+    	if(node == null) return;
+    	
+    	path[level] = node.getKey();
+    	
+    	int currentSum = 0;
+    	for(int i = level; i>= 0; i--)
+    	{
+    		currentSum += path[i];
+    		if(currentSum == sum)
+    		{
+    			for(int x = level; x >= i; x--)
+    			{
+    				System.out.print(x + " ");
+    			}
+    			System.out.print("\n");
+    		}
+    	}
+    	
+    	printPath(node.getLeft(), path, sum, level+1);
+    	printPath(node.getRight(), path, sum, level+1);
+    	
+    	path[level] = 0;
+    }
 
 }
