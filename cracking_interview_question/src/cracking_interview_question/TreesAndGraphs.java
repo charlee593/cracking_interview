@@ -60,11 +60,21 @@ public class TreesAndGraphs {
 ////        g.addEdge(vertex1, vertex5);
 //                
 //        System.out.println(isConnected(g, "4", "1"));
-		
-		
-//		int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+		int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+		int[] array2 = {1, 2, 3};
+		BST<Integer> result = new BST<Integer>();
+		result.insert(5);
+		result.insert(3);
+		result.insert(2);
+		result.insert(4);
+		result.insert(7);
+		result.insert(6);
+		result.insert(9);
+		System.out.println(result.root.getKey());
 //		System.out.println(isBinaryTreeBalance(createBalanceBST(array).root));
-		
+
+		printPath(result.root, 21);
 		
 		
 	}
@@ -236,12 +246,13 @@ public class TreesAndGraphs {
     //4.9
     public static void printPath(BSTnode<Integer> node, int sum)
     {
-    	int depth = BTHeight(node)-1;
-    	int[] path = new int[1];
-    	printPath(node, path, sum, depth);
+    	int depth = BTHeight(node);
+    	System.out.println(depth);
+    	int[] path = new int[depth];
+    	printPath(node, path, sum, 0);
     }
 	
-    public static void printPath(BSTnode<Integer> node, int[] path, int sum, int level)
+    private static void printPath(BSTnode<Integer> node, int[] path, int sum, int level)
     {
     	if(node == null) return;
     	
@@ -255,7 +266,7 @@ public class TreesAndGraphs {
     		{
     			for(int x = level; x >= i; x--)
     			{
-    				System.out.print(x + " ");
+    				System.out.print(path[x] + " ");
     			}
     			System.out.print("\n");
     		}
