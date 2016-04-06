@@ -45,7 +45,7 @@ public class BitManipulation {
 			{
 				return "ERROR";
 			}
-			result = "0" + s;
+			result = "0" + s; 
 		}
 
 		return result;
