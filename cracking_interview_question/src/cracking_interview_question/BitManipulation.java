@@ -63,7 +63,23 @@ public class BitManipulation {
 	
 	public static void main(String[] args) 
 	{
-		System.out.println("Hello");
+		printNextSmallest(18);
+	}
+	
+	//5.3
+	public static void printNextSmallest(int x)
+	{
+		int zeroNumRight = 0;
+		int oneNumRight = 0;
+		
+		int temp = x;
+		
+		while(temp != 0 && (temp & 1) == 0)
+		{
+			zeroNumRight++;
+			temp = temp << 1;
+		}
+
 	}
 
 }
