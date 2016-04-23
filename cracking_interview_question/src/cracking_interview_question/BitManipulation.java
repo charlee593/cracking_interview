@@ -63,9 +63,7 @@ public class BitManipulation {
 	
 	public static void main(String[] args) 
 	{
-		printNextBiggest(18);
-		printNextBiggest(140);
-		printNextSmallest(152);
+		System.out.println(getDiffBit(4, 4));
 	}
 	
 	//5.3
@@ -132,4 +130,18 @@ public class BitManipulation {
 	//5.4
 	
 	//To check the number if it is power of 2
+	
+	//5.5
+	public static int getDiffBit(int a, int b)
+	{		
+		int counter = 0;
+		
+		for(int c = a ^ b; c != 0; c &= (c-1) )
+		{
+			counter++;
+		}
+		
+		return counter;
+	}
+	
 }
