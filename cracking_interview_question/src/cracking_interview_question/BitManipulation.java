@@ -63,23 +63,69 @@ public class BitManipulation {
 	
 	public static void main(String[] args) 
 	{
-		printNextSmallest(18);
+		printNextBiggest(18);
+		printNextBiggest(140);
+		printNextSmallest(152);
 	}
 	
 	//5.3
-	public static void printNextSmallest(int x)
-	{
+	public static void printNextBiggest(int x)
+	{		
+		if(x == 0)
+		{
+			System.out.println(x);
+		}
+		
+		//Count right most 0 and 1
 		int zeroNumRight = 0;
 		int oneNumRight = 0;
-		
 		int temp = x;
+		while(temp != 0 && (temp & 1) == 0)
+		{
+			zeroNumRight++;
+			temp = temp >> 1;
+		}
+		
+		while(temp != 0 && (temp & 1) == 1)
+		{
+			oneNumRight++;
+			temp = temp >> 1;
+		}
+		
+		//Move leftmost 1s set's 1 to left for 1 
+		//Add 1 to rightmost
+		int result = x + (1 << zeroNumRight) + (1<< (oneNumRight-1)) - 1;
+		
+		System.out.println(result);
+	}
+
+	public static void printNextSmallest(int x)
+	{		
+		if(x == 0)
+		{
+			System.out.println(x);
+		}
+		
+		//Count right most 0 and 1
+		int zeroNumRight = 0;
+		int oneNumRight = 0;
+		int temp = x;
+		
+		while(temp != 0 && (temp & 1) == 1)
+		{
+			oneNumRight++;
+			temp = temp >> 1;
+		}
 		
 		while(temp != 0 && (temp & 1) == 0)
 		{
 			zeroNumRight++;
-			temp = temp << 1;
+			temp = temp >> 1;
 		}
-
+		
+		//Set right 1 to 0
+		int result = x - (1 << oneNumRight) - (1 << (zeroNumRight-1)) +1;
+		
+		System.out.println(result);
 	}
-
 }
