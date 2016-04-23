@@ -128,4 +128,8 @@ public class BitManipulation {
 		
 		System.out.println(result);
 	}
+	
+	//5.4
+	
+	//To check the number if it is power of 2
 }
