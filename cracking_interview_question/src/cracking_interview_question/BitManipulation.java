@@ -1,5 +1,7 @@
 package cracking_interview_question;
 
+import java.util.ArrayList;
+
 public class BitManipulation {
 	
 	//5.1
@@ -151,9 +153,60 @@ public class BitManipulation {
 		return (temp2 << 1) | (temp >> 1);
 	}
 	
+	//5.7
+	public static void missInt(ArrayList<Integer> array)
+	{
+		System.out.println(findMissBit(array, 0));
+	}
+	
+	private static int findMissBit(ArrayList<Integer> array, int bit)
+	{
+		if(array.size() == 0)
+		{
+			return 0;
+		}
+		
+		ArrayList<Integer> evenList = new ArrayList<Integer>(array.size()/2);
+		ArrayList<Integer> oddList = new ArrayList<Integer>(array.size()/2);
+		
+		for(int i : array)
+		{
+			if(getBit(i, bit) == 0)
+			{
+				evenList.add(i);
+			}
+			else
+			{
+				oddList.add(i);
+			}
+		}
+		
+		if(evenList.size() <= oddList.size())
+		{
+			int x = findMissBit(evenList, bit+1);
+			return x<<1;
+		}
+		else
+		{
+			int x = findMissBit(oddList, bit + 1);
+			return (x<<1) | 1;
+		}
+	}
+	
+	private static int getBit(int n, int k) {
+	    return (n >> k) & 1;
+	}
+	
 	public static void main(String[] args) 
 	{
-		System.out.println(Integer.toBinaryString(swapEvenOdd(142)));
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		list.add(0);
+		list.add(1);
+		list.add(2);
+		list.add(3);
+		list.add(5);
+		list.add(6);
+		missInt(list);
 	}
 	
 }
