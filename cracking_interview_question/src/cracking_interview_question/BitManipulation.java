@@ -61,11 +61,6 @@ public class BitManipulation {
 		System.out.println("0." + s);
 	}
 	
-	public static void main(String[] args) 
-	{
-		System.out.println(getDiffBit(4, 4));
-	}
-	
 	//5.3
 	public static void printNextBiggest(int x)
 	{		
@@ -142,6 +137,23 @@ public class BitManipulation {
 		}
 		
 		return counter;
+	}
+	
+	//5.6
+	public static int swapEvenOdd(int x)
+	{
+		int odd = Integer.decode("0x55555555");
+		int even = Integer.decode("0xaaaaaaa");
+		
+		int temp = even & x;
+		int temp2 = odd & x;
+		
+		return (temp2 << 1) | (temp >> 1);
+	}
+	
+	public static void main(String[] args) 
+	{
+		System.out.println(Integer.toBinaryString(swapEvenOdd(142)));
 	}
 	
 }
