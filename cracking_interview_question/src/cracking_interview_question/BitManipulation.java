@@ -197,16 +197,35 @@ public class BitManipulation {
 	    return (n >> k) & 1;
 	}
 	
+	//5.8
+	public static void drawHorizontalLine(byte[] screen, int width, int x1, int x2, int y)
+	{
+		int firstByte = x1 / 8;
+		int firstBit = x1 % 8;
+		int lastByte = x2 / 8;
+		int lastBit = x2 % 8;
+		
+		System.out.println((firstByte + 1) + " " + (lastByte - 1));
+		
+		//Set full byte
+		for(int i = firstByte+1; i <= lastByte-1; i++)
+		{
+			screen[(width / 8 * y) + i] = (byte)~0;
+		}
+		
+		
+	}
+	
 	public static void main(String[] args) 
 	{
-		ArrayList<Integer> list = new ArrayList<Integer>();
-		list.add(0);
-		list.add(1);
-		list.add(2);
-		list.add(3);
-		list.add(5);
-		list.add(6);
-		missInt(list);
+		byte[] screen = {0, 0, 0, 0, 0, 0};
+		drawHorizontalLine(screen, (8*3)-1, 4, 7, 1);
+		for(int i = 0; i < screen.length; i++)
+		{
+			System.out.println(String.format("%8s", Integer.toBinaryString(screen[i] & 0xFF)).replace(' ', '0'));
+		}
+
+		
 	}
 	
 }
