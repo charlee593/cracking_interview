@@ -213,6 +213,9 @@ public class BitManipulation {
 			screen[(width / 8 * y) + i] = (byte)~0;
 		}
 		
+		byte head = (byte) (0xFF << firstBit);
+		byte tail = (byte) ~(0xFF >> lastBit + 1);
+		
 		
 	}
 	
