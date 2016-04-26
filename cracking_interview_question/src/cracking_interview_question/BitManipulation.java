@@ -213,8 +213,18 @@ public class BitManipulation {
 			screen[(width / 8 * y) + i] = (byte)~0;
 		}
 		
-		byte head = (byte) (0xFF << firstBit);
+		byte head = (byte) (0xFF >> firstBit);
 		byte tail = (byte) ~(0xFF >> lastBit + 1);
+		
+		if(firstByte == lastByte)
+		{
+			screen[(width/8 * y) + firstByte] = (byte) (head & tail);
+		}
+		else
+		{
+			screen[(width/8 * y) + firstByte] = head;
+			screen[(width/8 * y) + lastByte] = tail;
+		}
 		
 		
 	}
@@ -222,7 +232,7 @@ public class BitManipulation {
 	public static void main(String[] args) 
 	{
 		byte[] screen = {0, 0, 0, 0, 0, 0};
-		drawHorizontalLine(screen, (8*3)-1, 4, 7, 1);
+		drawHorizontalLine(screen, (8*3), 2, 21, 1);
 		for(int i = 0; i < screen.length; i++)
 		{
 			System.out.println(String.format("%8s", Integer.toBinaryString(screen[i] & 0xFF)).replace(' ', '0'));
